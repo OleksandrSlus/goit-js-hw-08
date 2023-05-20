@@ -21,7 +21,10 @@ const formElements = {
     formElements.formEl.addEventListener('input', throttle(onFormInput, 1000));
     const onFormSubmit = (e) => {
         e.preventDefault();
-        e.currentTarget.reset();
+        console.log('Submitted Data:', formData);
+        formElements.emailEl.value = '';
+        formElements.textAreaEl.value = '';
         localStorage.removeItem(LOCAL_STORAGE_KEY);
-    };
+      };
+      formElements.formEl.addEventListener('submit', onFormSubmit);
     formElements.formEl.addEventListener('submit', onFormSubmit);
